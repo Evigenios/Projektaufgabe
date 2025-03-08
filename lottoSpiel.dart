@@ -4,7 +4,7 @@ void main() {
   //Lotto zahlen werden erst handisch gesetzt
   //später evtl mit einem Zufallsgenerator
   List<int> lottoZahlen = [5, 17, 18, 25, 32, 43]; //Zahlen von 1 bis 49 möglich
-  List<int> superZahl = [6]; //Ziffern von 0 bis 9 möglich
+  int superZahl = 6; //Ziffern von 0 bis 9 möglich
   List<int> alleVarianten = [
     1,
     2,
@@ -79,7 +79,7 @@ void main() {
 
   print("bitte gib die zweite Zahl ein :");
   String zahl2 = stdin.readLineSync() ?? " ";
-  int zweiteZahl = int.parse(zahl1);
+  int zweiteZahl = int.parse(zahl2);
 
   if (zahl1 == zahl2) {
     //hier prüfung ob eine Zahl doppelt angegeben wurde
@@ -87,44 +87,44 @@ void main() {
     print(
         "zahl wurde schon einmal genannt,bitte gebe eine andere Zahl für die zweite Zahl ein:");
     String zahl2 = stdin.readLineSync() ?? " ";
-    int zweiteZahl = int.parse(zahl1);
+    int zweiteZahl = int.parse(zahl2);
   }
 
   print("bitte gib die dritte Zahl ein :");
   String zahl3 = stdin.readLineSync() ?? " ";
-  int dritteZahl = int.parse(zahl1);
+  int dritteZahl = int.parse(zahl3);
 
   if ((zahl1 == zahl3 || zahl2 == zahl3)) {
     print(
         "zahl wurde schon einmal genannt,bitte gebe eine andere Zahl für die dritte  Zahl ein:");
     String zahl3 = stdin.readLineSync() ?? " ";
-    int dritteZahl = int.parse(zahl1);
+    int dritteZahl = int.parse(zahl3);
   }
 
   print("bitte gib die vierte Zahl ein :");
   String zahl4 = stdin.readLineSync() ?? " ";
-  int vierteZahl = int.parse(zahl1);
+  int vierteZahl = int.parse(zahl4);
 
   if ((zahl1 == zahl4 || zahl2 == zahl4 || zahl3 == zahl4)) {
     print(
         "zahl wurde schon einmal genannt,bitte gebe eine andere Zahl für die vierte  Zahl ein:");
     String zahl4 = stdin.readLineSync() ?? " ";
-    int vierteZahl = int.parse(zahl1);
+    int vierteZahl = int.parse(zahl4);
   }
 
   print("bitte gib die fünfte Zahl ein :");
   String zahl5 = stdin.readLineSync() ?? " ";
-  int fuenfteZahl = int.parse(zahl1);
+  int fuenfteZahl = int.parse(zahl5);
   if ((zahl1 == zahl5 || zahl2 == zahl5 || zahl3 == zahl5 || zahl4 == zahl5)) {
     print(
         "zahl wurde schon einmal genannt,bitte gebe eine andere Zahl für die dritte  Zahl ein:");
     String zahl5 = stdin.readLineSync() ?? " ";
-    int fuenfteZahl = int.parse(zahl1);
+    int fuenfteZahl = int.parse(zahl5);
   }
 
   print("bitte gib die sechste Zahl ein :");
   String zahl6 = stdin.readLineSync() ?? " ";
-  int sechsteZahl = int.parse(zahl1);
+  int sechsteZahl = int.parse(zahl6);
 
   if ((zahl1 == zahl6 ||
       zahl2 == zahl6 ||
@@ -134,14 +134,14 @@ void main() {
     print(
         "zahl wurde schon einmal genannt,bitte gebe eine andere Zahl für die dritte  Zahl ein:");
     String zahl6 = stdin.readLineSync() ?? " ";
-    int sechsteZahl = int.parse(zahl1);
+    int sechsteZahl = int.parse(zahl6);
   }
 
   print("Bitte gebe jetzt noch die Superzahl ein");
   print("Diese muss eine Ziffer von 0 bis 9 sein:");
 
   String supZahl = stdin.readLineSync() ?? " ";
-  int zusatzZahl = int.parse(zahl1);
+  int zusatzZahl = int.parse(supZahl);
 
   //Liste der tippzahlen erstellen für die for in schleife später
   List<int> tipZahlen = [
@@ -160,5 +160,55 @@ void main() {
     if (lottoZahlen.contains(tip)) {
       count++;
     }
+
+    
+  }
+  //Superzahl prüfen
+    bool checkSupZahl = false;
+    if (superZahl == zusatzZahl) {
+      checkSupZahl = true;
+    }
+
+  switch (count) {
+    case 0:
+      {
+        print("leider keine Zahl richtig");
+        if(checkSupZahl) {
+          print("aber Zusatzzahl richtig");
+        }
+      }
+    case 1:
+      print("Du hast eine richtige zahl getipt");
+      if(checkSupZahl) {
+          print("Zusatzzahl richtig");
+        }
+    case 2:
+      print("Du hast 2 richtige Zahlen getipt");
+      if(checkSupZahl) {
+          print("Zusatzzahl richtig");
+        }
+    case 3:
+      print("du hast 3 richtige zahlen getippt");
+      if(checkSupZahl) {
+          print("Zusatzzahl richtig");
+        }
+
+    case 4:
+      print("Du hast 4 richtige  zahlen getipt");
+      if(checkSupZahl) {
+          print("Zusatzzahl richtig");
+        }
+    case 5:
+      print("Du hast 5 richtige Zahlen getipt");
+      if(checkSupZahl) {
+          print("Zusatzzahl richtig");
+        }
+
+    case 6:
+      print("Du hast 6 richtige Zahlen getipt");
+      if(checkSupZahl) {
+          print("Zusatzzahl richtig");
+        }
+    default:
   }
 }
